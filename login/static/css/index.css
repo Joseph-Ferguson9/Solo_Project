@@ -1,0 +1,23 @@
+.form {
+    display: inline-block;
+    vertical-align: top;
+    width: fit-content;
+    margin: 20px;
+}
+.form_action {
+    display: block;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+.form_action label {
+    margin: 10px;
+}
+
+.form_action input {
+    float: right;
+}
+
+.form button {
+    margin-top: 10px;
+}
