@@ -17,21 +17,15 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <div class="form">
-        <h3>Login</h3>
-        <form action="/user/login" method="POST">
-            {% csrf_token %}
-            <div class="form_action">
-                <label for="email">Email</label>
-                <input type="email" name="email">
-            </div>
-            <div class="form_action">
-                <label for="password">Password</label>
-                <input type="password" name="password">
-            </div>
-            <button type="submit">Log In</button>
-        </form>
-    </div>
+    <h3>Login</h3>
+    <form action="/user/login" method="POST">
+        {% csrf_token %}
+        <label for="email">Email</label>
+        <input type="email" name="email">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <button type="submit">Log In</button>
+    </form>
 </body>
 
 </html>

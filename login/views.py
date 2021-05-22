@@ -1,4 +1,3 @@
-# from typing_extensions import Required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Users
@@ -15,7 +14,7 @@ def register(request):
     errors = Users.objects.user_validator(request.POST)
     if request.method == 'POST':
         if errors:
-            for key, value in errors.items():
+            for value in errors.items():
                 messages.error(request, value)
             return redirect('/')
         hash_pw = bcrypt.hashpw(
@@ -28,7 +27,7 @@ def register(request):
             password=hash_pw
         )
         request.session['logged_user'] = new_user.id
-        return redirect('')
+        return redirect('/user/edit_profile')
     return redirect('/login/page/register')
 
 
@@ -42,7 +41,7 @@ def login(request):
                 # compares the Posted password to the one stored within the database
                 # Puts the logged in user to session, only if the password is correct.
                 request.session['logged_user'] = log_user.id
-                return redirect('')
+                return redirect('/user/dash')
                 # localhost:8000/user/dashboard
         messages.error(request, "Email or password are incorrect")
     return redirect('/login/page/login')

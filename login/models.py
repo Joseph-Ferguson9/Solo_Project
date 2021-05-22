@@ -20,8 +20,6 @@ class UserManager(models.Manager):
         users_with_email = Users.objects.filter(email=postData['email'])
         if len(users_with_email) >= 1:
             errors['duplicate'] = "Email already exists"
-        if str(postData['bday']) > str(date.today()):
-            errors['bday'] = "Birthday must be in the past"
         if not PASSWORD_REGEX.match(postData['password']):
             errors['password'] = "Password must be between 8 and 20 characters, contain at least one digit, one uppercase, one lowercase, and one special character"
         if postData['password'] != postData['confirm_pw']:
@@ -33,7 +31,6 @@ class Users(models.Model):
     f_name = models.CharField(max_length=255)
     l_name = models.CharField(max_length=255)
     email = models.CharField(max_length=75)
-    bday = models.DateField()
     password = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

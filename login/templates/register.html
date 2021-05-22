@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 </head>
+
 <body>
     <a href="/">Back</a>
     <a href="/login/user/login">Login</a>
@@ -16,36 +18,21 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <div class="form">
-        <h3>Registration</h3>
-        <form action="/user/register" method="POST">
-            {% csrf_token %}
-            <div class="form_action">
-                <label for="f_name">First Name</label>
-                <input type="text" name="f_name">
-            </div>
-            <div class="form_action">
-                <label for="l_name">Last Name</label>
-                <input type="text" name="l_name">
-            </div>
-            <div class="form_action">
-                <label for="email">Email</label>
-                <input type="email" name="email">
-            </div>
-            <div class="form_action">
-                <label for="bday">Birthday</label>
-                <input type="date" name="bday">
-            </div>
-            <div class="form_action">
-                <label for="password">Password</label>
-                <input type="password" name="password">
-            </div>
-            <div class="form_action">
-                <label for="confirm_pw">Confirm PW</label>
-                <input type="password" name="confirm_pw">
-            </div>
-            <button type="submit">Register</button>
-        </form>
-    </div>
+    <h3>Registration</h3>
+    <form action="/login/user/register" method="POST">
+        {% csrf_token %}
+        <label for="f_name">First Name</label>
+        <input type="text" name="f_name">
+        <label for="l_name">Last Name</label>
+        <input type="text" name="l_name">
+        <label for="email">Email</label>
+        <input type="email" name="email">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <label for="confirm_pw">Confirm PW</label>
+        <input type="password" name="confirm_pw">
+        <button type="submit">Register</button>
+    </form>
 </body>
+
 </html>
